@@ -1,26 +1,22 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React,{Component,Fragment} from 'react';
+/**
+ * Fragment
+ * react 的 return 只能有一个根节点 但是又不想有多个div包裹  使用 Fragment 来占位解决 最终并不渲染
+ */
+import TodoList from './TodoList/TodoList';
+import RenderUl from './TodoList/RenderUl';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+
+    
+    render(){
+        return (
+            <Fragment>
+                 <TodoList></TodoList>
+                 <RenderUl></RenderUl>       
+            </Fragment>
+        )
+    }
 }
 
 export default App;
