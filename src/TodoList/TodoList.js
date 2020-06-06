@@ -1,6 +1,6 @@
 import React, { Component, } from 'react';
 import TodoItem from './TodoItem';
-
+import axios from 'axios';
 class TodoList extends Component {
 
     constructor(props) {
@@ -34,8 +34,23 @@ class TodoList extends Component {
         console.log("componentWillMount ==> 在组件即将被挂载到页面的时刻执行");
     }
     // 在组件挂载完成之后执行 只在第一次挂载的时候执行
+    // ajax请求都放在这里
     componentDidMount(){
         console.log("componentDidMount ==> 在组件挂载完成之后执行");
+        
+        axios.get("http://localhost:3000/").then((e)=>{
+
+            console.log("接口请求成功",e);
+
+            this.setState(()=>{
+                return {
+                    list:['我是mocks数据','嘻嘻','哈哈']
+                }
+            })
+             
+        }).catch(()=>{
+            console.log("接口请求失败");
+        })
     }
 
     // 只有在组件被更新之前执行 需要返回一个bool true 更新 false 不更新

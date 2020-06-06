@@ -42,9 +42,18 @@ class TodoItem extends Component {
     // 只有在组件被更新之前执行 需要返回一个bool true 更新 false 不更新
     // false 之后的生命周期函数将都不会执行
     // componentWillUpdate render componentDidUpdate 将不执行
-    shouldComponentUpdate(){
+    // 父组件被更新的时候子组件也会被更新
+    //  有时候子组件不需要被更新但是也会被更新 这样会消耗没必要的性能
+    // 通过此生命周期来判断是否需要更新 true 更新 false 不更新
+    // 虽然react底层会有虚拟dom比对没有变化不会渲染真实的dom
+    // 但是添加判断之后这样会节省虚拟dom比对的性能。体验更好
+    shouldComponentUpdate(nextProps,nextState){
         console.log("child ==> shouldComponentUpdate ==> 组件被更新之前执行");
-        return true;
+        if(nextProps.text !== this.props.text){
+            return true;
+        }else{
+            return false;
+        }
     }
 
     //在组件更新之前 shouldComponentUpdate执行之后 执行
