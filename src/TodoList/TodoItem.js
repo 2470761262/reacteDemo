@@ -12,7 +12,7 @@ class TodoItem extends Component {
     }
     render () {
         console.log("child ==> render");
-         return <li  onClick={this.removeItem}>
+         return <li  onClick={this.removeItem} style={this.props.style}>
              {this.props.text}/{this.props.index}
             </li>
     }
@@ -20,7 +20,9 @@ class TodoItem extends Component {
     removeItem(){
         this.props.parentRemoveIten(this.props.index)
     }
-
+    hahxixi(){
+        console.log(this,"我是子组件哈哈哈");
+    }
 
     // 这个生命周期执行的条件是
     // 1.当前这个组件接收了父组件传递的参数

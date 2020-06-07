@@ -5,7 +5,7 @@ import React,{Component,Fragment} from 'react';
  */
 import TodoList from './TodoList/TodoList';
 import RenderUl from './TodoList/RenderUl';
-
+import NewTodoList from './newTodoList/newTodoList';
 class App extends Component {
 
     
@@ -13,7 +13,15 @@ class App extends Component {
         return (
             <Fragment>
                  <TodoList></TodoList>
-                 <RenderUl></RenderUl>       
+                 <div className="render-ul-content">
+                     <RenderUl>
+                        <div style={{marginTop:'100px'}}>我跳出之外</div>
+                    </RenderUl>       
+                 </div>
+                <div style={{margin:'100px 0'}}>新的Todolist ------------------------------------ 我是分割线 嘻嘻</div>
+                 <section>
+                    <NewTodoList></NewTodoList>
+                 </section>
             </Fragment>
         )
     }

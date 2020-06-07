@@ -15,6 +15,8 @@ class TodoList extends Component {
         this.removeItem = this.removeItem.bind(this);
 
         this.callback = this.callback.bind(this);
+
+        this.myRef = React.createRef();
         //state就是vue 的data里的数据
         this.state = {
             inputValue: "",
@@ -36,6 +38,8 @@ class TodoList extends Component {
     // 在组件挂载完成之后执行 只在第一次挂载的时候执行
     // ajax请求都放在这里
     componentDidMount(){
+        console.log(this.TodoItemDom,"this.TodoItemDom");
+        console.log(this.myRef,"myRef");
         console.log("componentDidMount ==> 在组件挂载完成之后执行");
         
         axios.get("http://localhost:3000/").then((e)=>{
@@ -120,7 +124,7 @@ class TodoList extends Component {
          //不能像Vue可以把ref挂载组件上获取组件实例，react 获得的是undefined
  
          console.log(this.TodoItemDom,"this.TodoItemDom");
-
+         this.TodoItemDom.hahxixi();
 
         //prevState代表修改数据之前的数据是怎么样的
         this.setState((prevState) => {
@@ -170,6 +174,7 @@ class TodoList extends Component {
         return this.state.list.map((item, index) => {
             return (
                 <TodoItem
+                    style={{height:"50px",border:'1px solid red'}}
                     {...unfoldTransmit}
                     text={item}
                     index={index}
