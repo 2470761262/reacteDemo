@@ -2,7 +2,8 @@ import {
     CHANGEINPUTVALUE,
     CHANGELISTREMOVE,
     CHANGELISTPUSH,
-    INITLIST    
+    INITLIST,
+    GETINITLIST
 } from './actionType';
 import axios from 'axios';
 
@@ -41,9 +42,15 @@ export const getTodoList  = () => {
     return (dispatch) => {
         axios.get("http://localhost:3000/").then((e)=>{
 
-           dispatch(initList(['我是mocks数据','嘻嘻','哈哈']))
+           dispatch(initList(['我是mocks数据thunk','嘻嘻thunk','哈哈thunk','我是thunk']))
        }).catch((e)=>{
            console.log(e);
        })
+    }
+}
+
+export const getTodoListSage = () => {
+    return {
+        type:GETINITLIST
     }
 }

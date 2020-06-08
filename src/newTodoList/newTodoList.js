@@ -5,7 +5,8 @@ import {
     changeInputValue, 
     changeListRemove, 
     changeListPush,
-    getTodoList
+   // getTodoList, //使用redux-thunk时的代码
+   getTodoListSage
 } from '../store/actionCreates';
 import NewTodoListUi from './newTodoListUi';
 
@@ -40,7 +41,7 @@ class NewTodoList extends Component {
     }
 
     componentDidMount(){
-        store.dispatch(getTodoList());
+        store.dispatch(getTodoListSage());
     }
 
     render () {
