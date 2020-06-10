@@ -121,7 +121,6 @@ class TodoList extends Component {
 
          console.log(this.inputDom,"this.inputDom");
 
-         //不能像Vue可以把ref挂载组件上获取组件实例，react 获得的是undefined
  
          console.log(this.TodoItemDom,"this.TodoItemDom");
          this.TodoItemDom.hahxixi();
